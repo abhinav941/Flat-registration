@@ -5,7 +5,9 @@ class App extends Component {
     return (
       <main>
         <header>Header -> Navigation</header>
+        
         <sidebar>Sidebar</sidebar>
+        <br></br>
         <page>Page</page>
       </main>
     );
