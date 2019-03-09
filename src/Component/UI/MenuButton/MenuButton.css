@@ -1,0 +1,11 @@
+.container{
+    position: absolute;
+    left:3%;
+    top:6px;
+}
+.container div{
+    width:25px;
+    height: 4px;
+    margin:3px 0;
+    background-color:white;    
+}

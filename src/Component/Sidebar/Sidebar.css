@@ -41,33 +41,46 @@
 
 
 
-.sidebar li{
-    list-style: none;
-    padding: 10px;
-
-    background-color:white;
+.links a{
+    text-decoration:none;
+    height:30px;
+    width:200px;
+    padding-top:10px;
+    margin:0 auto;
+    text-transform: capitalize;
+    display: block;
+    color:white;
     margin-bottom:2px;
-    width: 80%;
-    margin: 1px auto;
     position: relative;
+    overflow: hidden;
+    border-radius:5px;
+
 }
 
-.animate{
+.links a.active,
+.links a:active,
+.links a:hover{
+    background-color:rgb(175, 131, 218);
+    color:white;
+    opacity: 0.9;
+}
+
+.links a::before{
+    content: '';
     width:10px;
-    height:40px;
-    background: red;
+    height:100%;
     position: absolute;
     top:0;
-    left:0;
-    display: none;
+    left:-10px;
+    background-color:white;
+    border-radius: 3px;
+    transform: translateX(0px);
+    transition:transform 10ms ease-in;
 }
 
-.sidebar li a{
-    text-decoration: none;
-    color:blueviolet;
-    text-transform: capitalize;
+.links a:hover::before,a.active::before{
+    transform:translateX(11px);
 }
-
 
 
 

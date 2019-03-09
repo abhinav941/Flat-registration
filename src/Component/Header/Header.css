@@ -3,6 +3,7 @@
     height:40px;
     background:blueviolet;
     margin: 0 auto;
+    position: relative;
     padding:0;
     border-radius: 10px;
     color:white

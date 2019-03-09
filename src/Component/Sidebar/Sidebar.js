@@ -29,17 +29,11 @@ const sidebar =(props)=>{
                 <ul>
                     {
                         props.links.map(l=>{
-                            return<>
-                            <li> 
-                            <div className={classes.animate}></div>
-                                
+                            return<div className={classes.links}>
                                 <NavLink to={'/'+l} 
-                                activeStyle={{
-                                    
-                                }}
+                                activeClassName={classes.active}
                                 >{l}</NavLink>
-                            </li>
-                            </>
+                            </div>
                         })
                     }
                 </ul>

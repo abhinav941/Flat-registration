@@ -3,6 +3,16 @@
     padding:0;
 }
 
+
+
 .SidebarThere{
-    margin-left:200px!important;
+    transition:transform 0.3s ease-in-out;
+}
+
+.Open{
+    transform: translateX(200px);
+    width:73%;
+}
+.Close{
+    transform: translateX(0px)
 }

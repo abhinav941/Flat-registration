@@ -1,11 +1,13 @@
 import React from 'react';
 import classes from './Header.css'
 import {NavLink} from 'react-router-dom'
-const header = ()=>{
+// import { prependOnceListener } from 'cluster';
+// import MenuButton from '../UI/MenuButton/MenuButton';
+const header = (props)=>{
     
     return (
         <div className={classes.header}>
-            LOGO
+            <span style={{display:'block',padding:'10px',marginLeft:props.show? '7px': '40px',}}>LOGO</span>
             <div className={classes.link}>
                 <NavLink to='/signin' 
                 activeClassName={classes.active}>Sign in</NavLink>
