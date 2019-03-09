@@ -1,0 +1,31 @@
+.header{
+    width:98%;
+    height:40px;
+    background:blueviolet;
+    margin: 0 auto;
+    padding:0;
+    border-radius: 10px;
+    color:white
+}
+
+.link{
+    position: absolute;
+    top:0;
+    right:0;
+    padding:10px
+}
+
+.link a{
+    text-decoration: none;
+    color:white;
+    margin:10px;
+    padding:8px;
+}
+
+.link a:active,
+.link a:hover,
+.link a.active{
+    background: white;
+    border-radius:10px;
+    color:blueviolet;
+}

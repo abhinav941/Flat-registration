@@ -1,8 +1,74 @@
 .sidebar{
-    width:20%;
+    width:200px;
     height:100%;
     background-color:blueviolet;
     position:absolute;
     top:0;
     left:0;
+    text-align: center;
+    transition:transform 0.3s ease-in-out;
 }
+.Open {
+    transform: translateX(0);
+}
+
+.Close {
+    transform: translateX(-100%);
+}
+
+.adminName{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background-color:white;
+    margin:0 auto;
+    margin-top:10px;      
+}
+.name{
+    margin:0 auto;
+    margin-top:10px; 
+    color:white
+}
+
+.sidebar ul{
+    margin:0;
+    padding:0;
+}
+
+.sidebar hr{
+    margin:0;
+}
+
+
+
+.sidebar li{
+    list-style: none;
+    padding: 10px;
+
+    background-color:white;
+    margin-bottom:2px;
+    width: 80%;
+    margin: 1px auto;
+    position: relative;
+}
+
+.animate{
+    width:10px;
+    height:40px;
+    background: red;
+    position: absolute;
+    top:0;
+    left:0;
+    display: none;
+}
+
+.sidebar li a{
+    text-decoration: none;
+    color:blueviolet;
+    text-transform: capitalize;
+}
+
+
+
+
+
