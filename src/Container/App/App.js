@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
+import Layout from '../Layout/Layout';
 
 class App extends Component {
   render() {
     return (
-      <main>
-        <header>Header -> Navigation</header>
-        
-        <sidebar>Sidebar</sidebar>
-        <br></br>
-        <page>Page</page>
-      </main>
+      <Layout/>
     );
   }
 }
