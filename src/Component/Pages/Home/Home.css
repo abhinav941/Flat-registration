@@ -1,0 +1,26 @@
+.Home{
+    width:97%;
+    height:580px;
+    margin:0 auto;
+    border:2px solid #eee;
+    box-shadow: 0 5px 5px #ccc;
+    margin-top:10px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.FlatDetails{
+    position:absolute;
+    top:40px;
+    width:40%;
+    display: grid;
+    grid-template-columns: auto auto;
+    right:10px;
+    padding:25px;
+    border-left:2px solid blueviolet;
+    border-bottom:2px solid blueviolet;
+}
+
+.FlatDetails .textField{
+    margin:10px;
+}

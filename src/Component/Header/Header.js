@@ -7,7 +7,7 @@ const header = (props)=>{
     
     return (
         <div className={classes.header}>
-            <span style={{display:'block',padding:'10px',marginLeft:props.show? '7px': '40px',}}>LOGO</span>
+            <span style={{display:'inline-block',padding:'20px',marginLeft:props.show? '7px': '40px',}}>LOGO</span>
             <div className={classes.link}>
                 <NavLink to='/signin' 
                 activeClassName={classes.active}>Sign in</NavLink>

@@ -1,26 +1,25 @@
 .header{
-    width:98%;
-    height:40px;
+    width:97%;
+    height:60px;
     background:blueviolet;
     margin: 0 auto;
-    position: relative;
     padding:0;
     border-radius: 10px;
-    color:white
+    color:white;
+    box-sizing: border-box;
+    top:0;
 }
 
 .link{
-    position: absolute;
-    top:0;
-    right:0;
-    padding:10px
+    display: flex;
+    float:right;
 }
 
 .link a{
     text-decoration: none;
     color:white;
-    margin:10px;
-    padding:8px;
+    padding:10px;
+    margin:10px
 }
 
 .link a:active,

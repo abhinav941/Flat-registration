@@ -26,7 +26,7 @@ class Layout extends Component {
         })
     }
     render() {
-        let classPage = [classes.SidebarThere]
+        let classPage = [classes.SidebarThere,classes.Layout]
         if(this.state.show){
             classPage.push(classes.Open)
         }
@@ -44,13 +44,13 @@ class Layout extends Component {
                             null:
                             <MenuButton />
                         }
-                        
                     </div>
+                    
                     
                 <Switch>
                     <Route path='/home' component={Home}/>
                     <Route path='/about' component={About}/>
-                    <Route path='/signin' render={()=><Signin show={this.state.show}/>}/>
+                    <Route path='/signin' component = {Signin}/> 
                     <Route path='/register' component={Register}/>
                     <Route path='/contact' component={Contact}/>
                 </Switch>
