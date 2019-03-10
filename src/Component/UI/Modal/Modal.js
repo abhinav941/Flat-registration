@@ -2,15 +2,25 @@ import React, { Component } from 'react'
 import classes from './Modal.css'
 import Backdrop from '../Backdrop/Backdrop';
 class Modal extends Component {
-
+    state={
+        show:this.props.show
+    }
+    
+    closeHandler=()=>{
+        const display = this.state.show;
+        this.setState({
+            show:!display
+        })
+        console.log('clicked')
+    }
     render() {
         return (
             <>
-                <Backdrop show={this.props.show} click={this.props.clicked} />
+                <Backdrop show={this.state.show} click={this.closeHandler} />
                 <div className={classes.Modal}
                     style={{
-                        transform: this.props.show ? 'translateY(0)' : 'translateY(-100vh)',
-                        opacity: this.props.show ? '1' : '0'
+                        transform: this.state.show ? 'translateY(0)' : 'translateY(-100vh)',
+                        opacity: this.state.show ? '1' : '0'
                     }}>
                     {this.props.children}
                 </div>
@@ -18,5 +28,6 @@ class Modal extends Component {
         )
     }
 }
+
 
 export default Modal
