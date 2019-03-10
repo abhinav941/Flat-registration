@@ -1,0 +1,33 @@
+.Button{
+    background:transparent;
+    font-size: 20px;
+    border-radius:5px;
+    border:2px solid;
+    padding:10px;
+    margin:10px;
+    cursor:pointer;
+}
+
+
+
+.Ok{
+    background-color:white;
+    color:green;
+    border:2px solid green; 
+}
+.Ok:hover{
+    background-color:green;
+    color:white;
+    border:2px solid white;
+}
+
+.Cancel{
+    background-color:white;
+    color:red;
+    border:2px solid red;
+}
+.Cancel:hover{
+    background-color:red;
+    color:white;
+    border:2px solid white
+}

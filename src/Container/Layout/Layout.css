@@ -16,3 +16,10 @@
 .Close{
     transform: translateX(0px)
 }
+
+@media (min-width:800px){
+    .Open{
+        width:85%;
+
+    }
+} 

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import classes from './Modal.css'
 import Backdrop from '../Backdrop/Backdrop';
+import {withRouter} from 'react-router-dom'
+// import Backdrop from '@material-ui/core/Backdrop'
 class Modal extends Component {
     state={
         show:this.props.show
@@ -12,11 +14,12 @@ class Modal extends Component {
             show:!display
         })
         console.log('clicked')
+
     }
     render() {
         return (
             <>
-                <Backdrop show={this.state.show} click={this.closeHandler} />
+                <Backdrop show={this.state.show} click={this.closeHandler}/>
                 <div className={classes.Modal}
                     style={{
                         transform: this.state.show ? 'translateY(0)' : 'translateY(-100vh)',
@@ -30,4 +33,4 @@ class Modal extends Component {
 }
 
 
-export default Modal
+export default withRouter(Modal)

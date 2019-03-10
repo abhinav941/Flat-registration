@@ -15,7 +15,7 @@ class Layout extends Component {
         links: [
             'home', 'contact', 'about'
         ],
-        show: true
+        show: false
 
 
     }
@@ -50,7 +50,7 @@ class Layout extends Component {
                 <Switch>
                     <Route path='/home' component={Home}/>
                     <Route path='/about' component={About}/>
-                    <Route path='/signin' component={Signin}/>
+                    <Route path='/signin' render={()=><Signin show={this.state.show}/>}/>
                     <Route path='/register' component={Register}/>
                     <Route path='/contact' component={Contact}/>
                 </Switch>
