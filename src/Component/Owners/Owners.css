@@ -1,10 +1,12 @@
 .Owners{
-    display: flex;
-    text-align: center
+    display: grid;
+    grid-template-columns: auto auto;
+    text-align: center;
+    margin-top:60px;
 }
 
 .Owner{
-    width:100%;
+    width:90%;
     padding:10px;
-    margin-top:60px;
+    margin: 0 auto;
 }

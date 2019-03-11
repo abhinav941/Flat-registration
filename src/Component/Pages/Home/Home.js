@@ -10,14 +10,14 @@ class Home extends Component {
 
     state = {
         flats: [
-            { no: 1, flatDetails: { rooms: 3, latBath: 2, kitchen: 2, location: 'vacany' }, flatOwner: [{ name: 'Abhinav', email: 'abhi@gmail.com', address: 'here there', contact: '1234567' },{ name: 'Ayushman', email: 'ayush@gmail.com', address: 'here there', contact: '987654' }] },
-            { no: 2, flatDetails: { rooms: 5, latBath: 2, kitchen: 3, location: 'sunside' }, flatOwner: [{ name: 'Ayushman', email: 'ayush@gmail.com', address: 'here there', contact: '987654' }] },
+            { no: 1, flatDetails: { rooms: 3, latBath: 2, kitchen: 2, location: 'vacany' }, flatOwner: [{ name: 'Abhinav', email: 'abhi@gmail.com', address: 'here there', contact: '1234567' }, { name: 'Ayushman', email: 'ayush@gmail.com', address: 'here there', contact: '987654' }, { name: 'Ayushman', email: 'ayush@gmail.com', address: 'here there', contact: '987654' }, { name: 'Ayushman', email: 'ayush@gmail.com', address: 'here there', contact: '987654' }] },
+            { no: 2, flatDetails: { rooms: 3, latBath: 2, kitchen: 2, location: 'vacany' }, flatOwner: [{ name: 'Abhishek', email: 'abhishek@gmail.com', address: 'here there', contact: '1234567' }] },
+            { no: 4, flatDetails: { rooms: 3, latBath: 2, kitchen: 2, location: 'vacany' }, flatOwner: [{ name: 'Nikhil', email: 'nikhil@gmail.com', address: 'here there', contact: '987654' }] },
         ],
         currentFlatOwner: [],
         owner: 'Show',
         no: 0,
         flatDetails: { rooms: 0, latBath: 0, kitchen: 0, location: 'some location' },
-        readOnly:false
     }
     flatChangeHandler = name => event => {
         this.setState({
@@ -26,38 +26,24 @@ class Home extends Component {
         this.changeFlatDetails(event.target.value);
     }
 
-    ownerChangeHandler=name=>event=>{
+    ownerChangeHandler = name => event => {
         this.setState({
-            [name]:event.target.value
+            [name]: event.target.value
         })
-        this.changeOwner(event.target.value);
     }
 
-    changeOwner=(value)=>{
-        if(value==='Update Existing'){
-            this.setState({
-                readOnly:true
-            })
-        }else{
-            this.setState({
-                readOnly:false
-            })
-        }
-    }
 
     changeFlatDetails = (m) => {
         let flats = [...this.state.flats]
         let currentFlatOwner = [...this.state.currentFlatOwner]
         for (let x in flats) {
             if (flats[x].no == m) {
-                currentFlatOwner=[...flats[x].flatOwner]
+                currentFlatOwner = [...flats[x].flatOwner]
                 this.setState({
                     flatDetails: { ...flats[x].flatDetails },
-                    currentFlatOwner:currentFlatOwner,
-                    owner:'Show',
-                    readOnly:false
+                    currentFlatOwner: currentFlatOwner,
+                    owner: 'Show',
                 })
-                console.log(currentFlatOwner)
                 return;
             }
         }
@@ -65,9 +51,18 @@ class Home extends Component {
             flatDetails: {
                 rooms: 0, latBath: 0, kitchen: 0, location: 'some location'
             },
-            currentFlatOwner:[]
+            currentFlatOwner: []
         })
     }
+    addNewOwner = (owner) => {
+        let flatOwner = [...this.state.currentFlatOwner]
+        flatOwner.push(owner);
+        this.setState({
+            currentFlatOwner: flatOwner,
+            owner: 'Show'
+        })
+    }
+
 
     render() {
         return (
@@ -84,9 +79,9 @@ class Home extends Component {
                         width: '90px', height: '50px', textAlign: 'center', margin: '20px', display: 'inline-block'
                     }} />
 
-                <span style={{ display: 'flex', float: 'right', fontSize: '20px', color: 'blueviolet', marginRight: '20%' }}>Flat Details</span>
-                <div className={classes.FlatDetails}>
-                    <TextField label="No. of Room"
+                <fieldset className={classes.fieldset}>
+                    <legend style={{ fontSize:'30px', color: 'blueviolet', marginRight: '20%' }}>Flat Details</legend>
+                    <div className={classes.FlatDetails}><TextField label="No. of Room"
                         variant="outlined"
                         className={classes.textField}
                         value={this.state.flatDetails.rooms}
@@ -94,32 +89,34 @@ class Home extends Component {
                         InputProps={{
                             readOnly: true
                         }} />
-                    <TextField label="No. of Lat-Baths"
-                        variant="outlined"
-                        className={classes.textField}
-                        value={this.state.flatDetails.latBath}
+                        <TextField label="No. of Lat-Baths"
+                            variant="outlined"
+                            className={classes.textField}
+                            value={this.state.flatDetails.latBath}
 
-                        InputProps={{
-                            readOnly: true
-                        }} />
-                    <TextField label="No. of Kitchen"
-                        variant="outlined"
-                        value={this.state.flatDetails.kitchen}
-                        className={classes.textField}
+                            InputProps={{
+                                readOnly: true
+                            }} />
+                        <TextField label="No. of Kitchen"
+                            variant="outlined"
+                            value={this.state.flatDetails.kitchen}
+                            className={classes.textField}
 
-                        InputProps={{
-                            readOnly: true
-                        }} />
-                    <TextField label="Location"
-                        variant="outlined"
-                        className={classes.textField}
-                        value={this.state.flatDetails.location}
+                            InputProps={{
+                                readOnly: true
+                            }} />
+                        <TextField label="Location"
+                            variant="outlined"
+                            className={classes.textField}
+                            value={this.state.flatDetails.location}
 
-                        InputProps={{
-                            readOnly: true
-                        }} />
+                            InputProps={{
+                                readOnly: true
+                            }} /></div>
 
-                </div>
+
+
+                </fieldset>
                 <div style={{ display: 'block' }}>
                     <InputLabel
                         htmlFor="select"
@@ -127,23 +124,22 @@ class Home extends Component {
                     <Select value={this.state.owner}
                         onChange={this.ownerChangeHandler('owner')}
                         inputProps={{
-                            id:"select",
-                            name:'select'
+                            id: "select",
+                            name: 'select'
                         }}
                         style={{ margin: '20px' }}
                     >   <MenuItem value='Show'>Show</MenuItem>
                         <MenuItem value="Add New">Add New</MenuItem>
-                        <MenuItem value="Update Existing">Update Existing</MenuItem>
                     </Select>
                 </div>
 
 
                 {
                     this.state.owner === 'Add New' ?
-                        <Form />
+                        <Form click={this.addNewOwner} />
                         : null
                 }
-                <Owners owners={this.state.currentFlatOwner} read={this.state.readOnly}/>
+                <Owners owners={this.state.currentFlatOwner} read={this.state.readOnly} />
 
 
             </div>

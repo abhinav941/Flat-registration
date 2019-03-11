@@ -1,25 +1,17 @@
 .Home{
     width:97%;
-    height:580px;
     margin:0 auto;
     border:2px solid #eee;
     box-shadow: 0 5px 5px #ccc;
     margin-top:10px;
     border-radius: 10px;
     position: relative;
+    min-height:590px;
 }
 
 .FlatDetails{
-    position:absolute;
-    top:40px;
-    width:40%;
     display: grid;
     grid-template-columns: auto auto;
-    right:10px;
-    padding:15px;
-    margin-right:40px;
-    margin-top:20px;
-    border:2px solid blueviolet;
 }
 
 .FlatDetails .textField{
@@ -36,3 +28,10 @@
     color:white;
 }
 
+.fieldset{
+    width:50%;
+    position: absolute;
+    top:45px;
+    right:10px;
+    border-color:blueviolet;
+}

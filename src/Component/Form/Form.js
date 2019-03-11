@@ -1,17 +1,23 @@
 import React, { Component } from 'react'
 import TextField from '@material-ui/core/TextField';
 import classes from './Form.css'
-import  Button  from '../UI/Button/Button';
+import Button from '../UI/Button/Button';
 class Form extends Component {
-    state={
-        name:'',
-        address:'',
-        email:'',
-        contact:''
+    state = {
+        data: {
+            name: '',
+            address: '',
+            email: '',
+            contact: ''
+        }
+
     }
-    onChangeHandler=name=>event=>{
+    onChangeHandler = name => event => {
         this.setState({
-            [name]:event.target.value
+            data:{
+                ...this.state.data,
+                [name]: event.target.value
+            }
         })
     }
     render() {
@@ -22,14 +28,14 @@ class Form extends Component {
                     label="name"
                     onChange={this.onChangeHandler("name")}
                     required
-                    value={this.state.name}
+                    value={this.state.data.name}
                     className={classes.textField}
-                    
+
                 />
 
                 <TextField
                     variant="outlined"
-                    value={this.state.address}
+                    value={this.state.data.address}
                     label="address"
                     onChange={this.onChangeHandler("address")}
                     className={classes.textField}
@@ -37,7 +43,7 @@ class Form extends Component {
                 />
 
                 <TextField
-                    value={this.state.contact}
+                    value={this.state.data.contact}
                     variant="outlined"
                     label="contact"
                     onChange={this.onChangeHandler("contact")}
@@ -46,7 +52,7 @@ class Form extends Component {
                 />
 
                 <TextField
-                    value={this.state.email}
+                    value={this.state.data.email}
                     variant="outlined"
                     label="email"
                     onChange={this.onChangeHandler("email")}
@@ -54,8 +60,8 @@ class Form extends Component {
                     className={classes.textField}
                     type="email"
                 />
-                <Button type="Ok" name="Add"/>
-                <Button type="Cancel" name="Cancel"/>
+                <Button type="Ok" name="Add" click={() => (this.props.click(this.state.data))} />
+                <Button type="Cancel" name="Cancel" />
             </div>
 
         )
