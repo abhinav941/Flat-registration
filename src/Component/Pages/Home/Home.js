@@ -3,35 +3,70 @@ import classes from './Home.css'
 import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'
 import Select from '@material-ui/core/Select'
-import { OutlinedInput, InputLabel } from '@material-ui/core';
 import Form from '../../Form/Form';
+import InputLabel from '@material-ui/core/InputLabel'
+import Owners from '../../Owners/Owners';
 class Home extends Component {
 
     state = {
         flats: [
-            { no: 1, flatDetails: { rooms: 3, latBath: 2, kitchen: 2, location: 'vacany' } },
-            { no: 2, flatDetails: { rooms: 5, latBath: 2, kitchen: 3, location: 'sunside' } },
+            { no: 1, flatDetails: { rooms: 3, latBath: 2, kitchen: 2, location: 'vacany' }, flatOwner: [{ name: 'Abhinav', email: 'abhi@gmail.com', address: 'here there', contact: '1234567' },{ name: 'Ayushman', email: 'ayush@gmail.com', address: 'here there', contact: '987654' }] },
+            { no: 2, flatDetails: { rooms: 5, latBath: 2, kitchen: 3, location: 'sunside' }, flatOwner: [{ name: 'Ayushman', email: 'ayush@gmail.com', address: 'here there', contact: '987654' }] },
         ],
-        owner: 'Add New',
+        currentFlatOwner: [],
+        owner: 'Show',
         no: 0,
-        flatDetails: { rooms: 0, latBath: 0, kitchen: 0, location: 'some location' }
+        flatDetails: { rooms: 0, latBath: 0, kitchen: 0, location: 'some location' },
+        readOnly:false
     }
-    onChangeHandler = name => event => {
+    flatChangeHandler = name => event => {
         this.setState({
-            [name]: event.target.value
+            [name]: event.target.value,
         })
         this.changeFlatDetails(event.target.value);
     }
+
+    ownerChangeHandler=name=>event=>{
+        this.setState({
+            [name]:event.target.value
+        })
+        this.changeOwner(event.target.value);
+    }
+
+    changeOwner=(value)=>{
+        if(value==='Update Existing'){
+            this.setState({
+                readOnly:true
+            })
+        }else{
+            this.setState({
+                readOnly:false
+            })
+        }
+    }
+
     changeFlatDetails = (m) => {
         let flats = [...this.state.flats]
+        let currentFlatOwner = [...this.state.currentFlatOwner]
         for (let x in flats) {
             if (flats[x].no == m) {
+                currentFlatOwner=[...flats[x].flatOwner]
                 this.setState({
-                    flatDetails: { ...flats[x].flatDetails }
+                    flatDetails: { ...flats[x].flatDetails },
+                    currentFlatOwner:currentFlatOwner,
+                    owner:'Show',
+                    readOnly:false
                 })
-                console.log("yes")
+                console.log(currentFlatOwner)
+                return;
             }
         }
+        this.setState({
+            flatDetails: {
+                rooms: 0, latBath: 0, kitchen: 0, location: 'some location'
+            },
+            currentFlatOwner:[]
+        })
     }
 
     render() {
@@ -43,7 +78,7 @@ class Home extends Component {
                     type="number"
                     label="Flat No."
                     variant="outlined"
-                    onChange={this.onChangeHandler("no")}
+                    onChange={this.flatChangeHandler("no")}
                     value={this.state.no}
                     style={{
                         width: '90px', height: '50px', textAlign: 'center', margin: '20px', display: 'inline-block'
@@ -85,24 +120,31 @@ class Home extends Component {
                         }} />
 
                 </div>
-                <InputLabel
-                    htmlFor="select-owner"
-                    ref={ref => (this.InputLabelRef = ref)}
-                >Select Owner</InputLabel>
-                <Select value={this.state.owner}
-                    onChange={this.onChangeHandler('owner')}
-                    input={
-                        <OutlinedInput
-                            id='select-owner'
-                        />
-                    }
+                <div style={{ display: 'block' }}>
+                    <InputLabel
+                        htmlFor="select"
+                    >Select Owner</InputLabel>
+                    <Select value={this.state.owner}
+                        onChange={this.ownerChangeHandler('owner')}
+                        inputProps={{
+                            id:"select",
+                            name:'select'
+                        }}
+                        style={{ margin: '20px' }}
+                    >   <MenuItem value='Show'>Show</MenuItem>
+                        <MenuItem value="Add New">Add New</MenuItem>
+                        <MenuItem value="Update Existing">Update Existing</MenuItem>
+                    </Select>
+                </div>
 
-                    style={{ margin: '20px' }}
-                >
-                    <MenuItem value="Add New">Add New</MenuItem>
-                    <MenuItem value="Update Existing">Update Existing</MenuItem>
-                </Select>
-                <Form/>
+
+                {
+                    this.state.owner === 'Add New' ?
+                        <Form />
+                        : null
+                }
+                <Owners owners={this.state.currentFlatOwner} read={this.state.readOnly}/>
+
 
             </div>
 

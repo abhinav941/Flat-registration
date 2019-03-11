@@ -19,10 +19,10 @@ class Modal extends Component {
     render() {
         return (
             <>
-                <Backdrop show={this.state.show} click={this.closeHandler}/>
+                <Backdrop show={this.state.show} click={this.closeHandler} navigate={this.props.locate}/>
                 <div className={classes.Modal}
                     style={{
-                        transform: this.state.show ? 'translateY(0)' : 'translateY(-100vh)',
+                        transform: this.state.show ? 'translateY(0)' : 'translateY(-100vw)',
                         opacity: this.state.show ? '1' : '0'
                     }}>
                     {this.props.children}

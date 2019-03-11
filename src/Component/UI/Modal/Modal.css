@@ -8,5 +8,5 @@
     left:30%;
     transform: translate(-50%,-50%);
     box-sizing: border-box;
-    transition: all 0.3s ease-out;
+    transition: transform 0.3s ease-out;
 }

@@ -1,7 +1,18 @@
 .Form{
     border:2px solid #eee;
-    display:grid;
-    grid-template-columns: auto auto;
     box-shadow: 0 5px 5px #ccc;
-    margin-top:120px
+    width:400px;
+    position: absolute;
+    top:10%;
+    left:20%;
+    z-index: 100;
+    background-color: white;
+}
+.Form .textField:first-of-type{
+    margin:20px 20px 5px 20px;
+
+}
+.Form .textField{
+    width:90%;
+    margin:5px 20px 5px 20px;
 }

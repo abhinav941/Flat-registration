@@ -29,7 +29,7 @@ const sidebar =(props)=>{
                 <ul>
                     {
                         props.links.map(l=>{
-                            return<div className={classes.links}>
+                            return<div className={classes.links} key={l}>
                                 <NavLink to={'/'+l} 
                                 activeClassName={classes.active}
                                 >{l}</NavLink>

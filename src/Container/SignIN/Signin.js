@@ -31,7 +31,7 @@ class Signin extends Component{
 
     render(){
         return(
-            <Modal show={this.state.show}>
+            <Modal show={this.state.show} locate="">
             <div className={classes.header}>
                 SIGN IN
             </div>

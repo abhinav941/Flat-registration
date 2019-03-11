@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import TextField from '@material-ui/core/TextField';
 import classes from './Form.css'
+import  Button  from '../UI/Button/Button';
 class Form extends Component {
     state={
         name:'',
@@ -16,41 +17,45 @@ class Form extends Component {
     render() {
         return (
             <div className={classes.Form}>
-            <label htmlFor="name">Name</label>
                 <TextField
                     variant="outlined"
                     label="name"
                     onChange={this.onChangeHandler("name")}
                     required
-                    style={{
-                        width:'200px',
-                        margin:'50px'
-                    }}
+                    value={this.state.name}
+                    className={classes.textField}
+                    
                 />
-            <label htmlFor="address">Address</label>
 
                 <TextField
-
                     variant="outlined"
+                    value={this.state.address}
                     label="address"
                     onChange={this.onChangeHandler("address")}
+                    className={classes.textField}
                     required
                 />
-            <label htmlFor="name">Name</label>
 
                 <TextField
+                    value={this.state.contact}
                     variant="outlined"
                     label="contact"
                     onChange={this.onChangeHandler("contact")}
+                    className={classes.textField}
                     required
                 />
+
                 <TextField
+                    value={this.state.email}
                     variant="outlined"
                     label="email"
                     onChange={this.onChangeHandler("email")}
                     required
+                    className={classes.textField}
                     type="email"
                 />
+                <Button type="Ok" name="Add"/>
+                <Button type="Cancel" name="Cancel"/>
             </div>
 
         )

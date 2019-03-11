@@ -16,11 +16,23 @@
     display: grid;
     grid-template-columns: auto auto;
     right:10px;
-    padding:25px;
-    border-left:2px solid blueviolet;
-    border-bottom:2px solid blueviolet;
+    padding:15px;
+    margin-right:40px;
+    margin-top:20px;
+    border:2px solid blueviolet;
 }
 
 .FlatDetails .textField{
     margin:10px;
 }
+
+.header{
+    width:100%;
+    height:70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:blueviolet;
+    color:white;
+}
+

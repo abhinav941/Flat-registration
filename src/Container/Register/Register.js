@@ -30,7 +30,7 @@ class Register extends Component {
         return (
             <div>
 
-                <Modal show>
+                <Modal show locate="">
                     <div className={classes.header}>
                         REGISTER
                     </div>

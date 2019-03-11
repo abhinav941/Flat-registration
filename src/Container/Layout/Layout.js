@@ -13,7 +13,7 @@ import Signin from '../SignIN/Signin'
 class Layout extends Component {
     state = {
         links: [
-            'home', 'contact', 'about'
+            'FLAT OWNER REGISTRATION', 'contact', 'about'
         ],
         show: false
 
@@ -48,7 +48,7 @@ class Layout extends Component {
                     
                     
                 <Switch>
-                    <Route path='/home' component={Home}/>
+                    <Route path='/FLAT OWNER REGISTRATION' component={Home}/>
                     <Route path='/about' component={About}/>
                     <Route path='/signin' component = {Signin}/> 
                     <Route path='/register' component={Register}/>

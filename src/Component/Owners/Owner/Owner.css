@@ -1,0 +1,12 @@
+.Owner{
+    display:grid;
+    grid-template-columns: auto auto;
+    border-color: blueviolet;
+    padding: 15px;
+
+}
+
+.Owner .textField{
+    margin:15px;
+    width: 90%;
+}
