@@ -3,6 +3,7 @@
     grid-template-columns: auto auto;
     border-color: blueviolet;
     padding: 15px;
+    position: relative;
 
 }
 
@@ -13,4 +14,12 @@
 
 .fieldset{
     position: absolute;;
+}
+
+.Owner .editIcon{
+    width:45px;
+    position: absolute;
+    top:5%;
+    right:20px;
+    z-index: 30;
 }

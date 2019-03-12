@@ -3,7 +3,7 @@ import classes from './Owners.css'
 import Owner from './Owner/Owner'
 class Owners extends Component {
     state = {
-        editable: this.props.read
+        editable: this.props.editable
     }
 
     render() {
@@ -15,7 +15,7 @@ class Owners extends Component {
             {   this.props.owners.length!==0?
                 this.props.owners.map((owner,index) => {
                 return <div key={Math.random()} className={classes.Owner}>
-                    <Owner ownerDetails={owner} edit={this.props.read} i={index}/>
+                    <Owner ownerDetails={owner} edit={this.props.editable} i={index} changeHandler={this.props.changeOwnerName}/>
                     {this.props.owners[owner]}
                 </div>
             }):

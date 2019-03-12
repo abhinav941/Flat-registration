@@ -11,32 +11,43 @@ class Home extends Component {
     state = {
         flats: [
             { no: 1, flatDetails: { rooms: 3, latBath: 2, kitchen: 2, location: 'vacany' }, flatOwner: [{ name: 'Abhinav', email: 'abhi@gmail.com', address: 'here there', contact: '1234567' }, { name: 'Ayushman', email: 'ayush@gmail.com', address: 'here there', contact: '987654' }, { name: 'Ayushman', email: 'ayush@gmail.com', address: 'here there', contact: '987654' }, { name: 'Ayushman', email: 'ayush@gmail.com', address: 'here there', contact: '987654' }] },
-            { no: 2, flatDetails: { rooms: 3, latBath: 2, kitchen: 2, location: 'vacany' }, flatOwner: [{ name: 'Abhishek', email: 'abhishek@gmail.com', address: 'here there', contact: '1234567' }] },
+            { no: 2, flatDetails: { rooms: 5, latBath: 3, kitchen: 1, location: 'sunside' }, flatOwner: [{ name: 'Abhishek', email: 'abhishek@gmail.com', address: 'here there', contact: '1234567' }] },
             { no: 4, flatDetails: { rooms: 3, latBath: 2, kitchen: 2, location: 'vacany' }, flatOwner: [{ name: 'Nikhil', email: 'nikhil@gmail.com', address: 'here there', contact: '987654' }] },
         ],
         currentFlatOwner: [],
         owner: 'Show',
         no: 0,
+        edit:false,
         flatDetails: { rooms: 0, latBath: 0, kitchen: 0, location: 'some location' },
     }
+    //Handler for on change of Flat No. or ownerType
     flatChangeHandler = name => event => {
         this.setState({
             [name]: event.target.value,
         })
         this.changeFlatDetails(event.target.value);
     }
-
     ownerChangeHandler = name => event => {
         this.setState({
             [name]: event.target.value
         })
     }
 
-
+    //Diffrent Handlers.....
+    changeOwnerName=(data,index)=>{
+        let currentFlatOwner = [...this.state.currentFlatOwner]
+        currentFlatOwner[index] = {...data}
+        console.log(currentFlatOwner[index])
+        this.setState({
+            currentFlatOwner:currentFlatOwner,
+            edit:false
+        })
+    }
     changeFlatDetails = (m) => {
         let flats = [...this.state.flats]
         let currentFlatOwner = [...this.state.currentFlatOwner]
         for (let x in flats) {
+            // eslint-disable-next-line
             if (flats[x].no == m) {
                 currentFlatOwner = [...flats[x].flatOwner]
                 this.setState({
@@ -56,10 +67,19 @@ class Home extends Component {
     }
     addNewOwner = (owner) => {
         let flatOwner = [...this.state.currentFlatOwner]
+        if(owner.name===''||owner.address===''||owner.contact===''||owner.email===''){
+            return;
+        }
         flatOwner.push(owner);
         this.setState({
+
             currentFlatOwner: flatOwner,
             owner: 'Show'
+        })
+    }
+    cancelAddOwner =()=>{
+        this.setState({
+            owner:'Show'
         })
     }
 
@@ -136,10 +156,10 @@ class Home extends Component {
 
                 {
                     this.state.owner === 'Add New' ?
-                        <Form click={this.addNewOwner} />
+                        <Form click={this.addNewOwner} cancel={this.cancelAddOwner}/>
                         : null
                 }
-                <Owners owners={this.state.currentFlatOwner} read={this.state.readOnly} />
+                <Owners owners={this.state.currentFlatOwner} editable={this.state.edit} changeOwnerName={this.changeOwnerName} />
 
 
             </div>

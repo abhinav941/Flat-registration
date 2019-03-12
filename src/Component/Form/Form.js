@@ -61,7 +61,7 @@ class Form extends Component {
                     type="email"
                 />
                 <Button type="Ok" name="Add" click={() => (this.props.click(this.state.data))} />
-                <Button type="Cancel" name="Cancel" />
+                <Button type="Cancel" name="Cancel" click={this.props.cancel}/>
             </div>
 
         )
