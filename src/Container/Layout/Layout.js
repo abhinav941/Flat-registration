@@ -4,16 +4,16 @@ import classes from './Layout.css'
 // import rightArrow from '../../assets/right-arrow.svg'
 import Header from '../../Component/Header/Header'
 import MenuButton from '../../Component/UI/MenuButton/MenuButton';
-import {Route,Switch} from 'react-router-dom'
+import {Route,Switch,Redirect} from 'react-router-dom'
 import Home from '../../Component/Pages/Home/Home';
+import Dashboard from '../../Component/Pages/Dashboard/Dashboard'
 import About from '../../Component/Pages/About/About';
-import Contact from '../../Component/Pages/Contact/Contact';
 import Register from '../Register/Register';
 import Signin from '../SignIN/Signin'
 class Layout extends Component {
     state = {
         links: [
-            'FLAT OWNER REGISTRATION', 'contact', 'about'
+            'DASHBOARD','FLAT OWNER REGISTRATION', 'FLAT MASTER REGISTRATION'
         ],
         show: false
 
@@ -49,10 +49,11 @@ class Layout extends Component {
                     
                 <Switch>
                     <Route path='/FLAT OWNER REGISTRATION' component={Home}/>
-                    <Route path='/about' component={About}/>
+                    <Route path='/FLAT MASTER REGISTRATION' component={About}/>
                     <Route path='/signin' component = {Signin}/> 
                     <Route path='/register' component={Register}/>
-                    <Route path='/contact' component={Contact}/>
+                    <Route path="/dashboard" component={Dashboard}/>
+                    <Redirect path='/' to="/FLAT OWNER REGISTRATION"/>
                 </Switch>
                 </div>
             </>

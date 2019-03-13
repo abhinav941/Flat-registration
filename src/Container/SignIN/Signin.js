@@ -7,12 +7,10 @@ class Signin extends Component{
     state={
         show:true,
         uname:'',
-        password:''
+        password:'',
+        error:false
     }
 
-    componentDidMount(){
-        console.log(this.props)
-    }
     changeHandler =name=>event =>{
         this.setState({
             [name]:event.target.value
@@ -20,13 +18,24 @@ class Signin extends Component{
     }
 
     cancelClicked=()=>{
-        this.props.history.goBack();
+        this.props.history.replace('/dashboard');
     }
     signInClicked=()=>{
         if(this.state.uname !=='' && this.state.password !== ""){
-            this.props.history.replace('/home');
+            if(this.state.uname === this.state.password){
+                this.setState({
+                    error:false
+                })
+                // this.props.history.replace('/');
+            }else{
+                this.setState({error:true})
+            }
         }
-        console.log(this.state)
+        else{
+            this.setState({
+                error:true
+            })
+        }
     }
 
     render(){
@@ -35,7 +44,8 @@ class Signin extends Component{
             <div className={classes.header}>
                 SIGN IN
             </div>
-                <form className={classes.Signin} onSubmit={this.signInClicked}>
+                <div className={classes.Signin} >
+                    <span className={classes.error} style={{display:this.state.error?'block':'none',color:'red'}}>Either Username or password  is wrong</span>
                      <TextField
                      required
                      id="outlined-required"
@@ -59,11 +69,11 @@ class Signin extends Component{
                      style={{width:'90%',margin:'20px 20px 10px 20px'}}
                      />
                      <br></br>
-                     <Button type="Ok" name="Sign In" />
+                     <Button type="Ok" name="Sign In" click={this.signInClicked}/>
                      <Button type="Cancel" name="Cancel" click={this.cancelClicked} />
                      {/* <Button type="Ok" name="Sign In"/>
                      <Button type="Cancel" name="Cancel"/> */}
-                </form>
+                </div>
             </Modal>
         )
     }

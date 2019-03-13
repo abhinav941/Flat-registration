@@ -7,3 +7,14 @@
     background-color:blueviolet;
     color:white;
 }
+
+.error{
+    width:90%;
+    margin:0 auto;
+    margin-top:5px;
+    border-radius:20px;
+    text-align: center;
+    padding:10px;
+    box-sizing: border-box;
+    border:2px solid red;
+}
