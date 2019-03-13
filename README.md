@@ -6,63 +6,39 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+How to use it......
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+there are 5 major routes in the page : All Component for routes present in -> Component/Pages
+    1:Dashboard -> for future purpose
+    2:Flat Owner Registration -> for flat owner registration
+        Component for this is : Home  
+    3:Flat Master Registration -> for Apartment Master Registration
+        Component for this is : About  
+    4:Sign in : for Signing in Apartment master
+        Component for this is : Signin  
+    5:Register : for registration of the master.
+        Component for this is : Register  
 
-### `npm test`
+Flat Owner Registration :  
+    It uses the dataset of flats. Which was provided by the Flat Master during registration.
+    flats dataset consist of:
+        1: no : Flat Number ->starting : 0
+        2: flatDetails : Detail of flat -> no. of room , no .of kitchens etc 
+        3: flatOwner : details of flat owner -> inititaly : []
+        4: vacant : This will check the that flat is occupied or not. 
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Flat Master Registration : 
+    It uses the complete data of the apartment and can be set during the registration
+    Initialy there is 0 floor and floor detials are:
+        1: flats is the empty array
+        2: starts : starting number of Flat on the Floor:0
+        3: ends : ending number of Flat on the Floor:0
+    
 
-### `npm run build`
+    If we save the Floor the number accordingly the apartment is created of that no. of floor and then we will proceed in the detailing the number of flats on each floor.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Creater Details :
+    Name : Abhinav Rao
+    Contact : +91-813-005-5276
+    Email : abhinavrao941@gmail.com

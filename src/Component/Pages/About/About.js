@@ -29,7 +29,7 @@ class About extends Component {
         for (let i = 0; i < this.state.flat; i++) {
             flats.push({ no: i, flats: [], starts: 0, ends: 0 })
         }
-        flats.push({ no: flats.length, flats: [], starts: 0, ends: 0 })
+        flats.push({ no: flats.length, flats: [], starts: 0, ends: 0 ,vacany:false})
 
         console.log(flats)
         this.setState({

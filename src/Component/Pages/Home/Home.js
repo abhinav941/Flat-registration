@@ -10,9 +10,9 @@ class Home extends Component {
 
     state = {
         flats: [
-            { no: 1, flatDetails: { rooms: 3, latBath: 2, kitchen: 2, location: 'vacany' }, flatOwner: [{ name: 'Abhinav', email: 'abhi@gmail.com', address: 'here there', contact: '1234567' }, { name: 'Ayushman', email: 'ayush@gmail.com', address: 'here there', contact: '987654' }, { name: 'Ayushman', email: 'ayush@gmail.com', address: 'here there', contact: '987654' }, { name: 'Ayushman', email: 'ayush@gmail.com', address: 'here there', contact: '987654' }] },
-            { no: 2, flatDetails: { rooms: 5, latBath: 3, kitchen: 1, location: 'sunside' }, flatOwner: [{ name: 'Abhishek', email: 'abhishek@gmail.com', address: 'here there', contact: '1234567' }] },
-            { no: 4, flatDetails: { rooms: 3, latBath: 2, kitchen: 2, location: 'vacany' }, flatOwner: [{ name: 'Nikhil', email: 'nikhil@gmail.com', address: 'here there', contact: '987654' }] },
+            { no: 1,vacant:false, flatDetails: { rooms: 3, latBath: 2, kitchen: 2, location: 'vacany' }, flatOwner: [{ name: 'Abhinav', email: 'abhi@gmail.com', address: 'here there', contact: '1234567' }, { name: 'Ayushman', email: 'ayush@gmail.com', address: 'here there', contact: '987654' }, { name: 'Ayushman', email: 'ayush@gmail.com', address: 'here there', contact: '987654' }, { name: 'Ayushman', email: 'ayush@gmail.com', address: 'here there', contact: '987654' }] },
+            { no: 2, vacant:false,flatDetails: { rooms: 5, latBath: 3, kitchen: 1, location: 'sunside' }, flatOwner: [{ name: 'Abhishek', email: 'abhishek@gmail.com', address: 'here there', contact: '1234567' }] },
+            { no: 4, vacant:false,flatDetails: { rooms: 3, latBath: 2, kitchen: 2, location: 'vacany' }, flatOwner: [{ name: 'Nikhil', email: 'nikhil@gmail.com', address: 'here there', contact: '987654' }] },
         ],
         currentFlatOwner: [],
         owner: 'Show',
