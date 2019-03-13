@@ -36,3 +36,16 @@
     transform: scale(1.09)
 
 }
+
+.Edit{
+    background-color:white;
+    color:blue;
+    border:2px solid blue;
+}
+
+.Edit:hover{
+    background-color:blue;
+    color:white;
+    border:2px solid white;
+    transform: scale(1.09)
+}

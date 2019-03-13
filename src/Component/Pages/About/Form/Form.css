@@ -1,0 +1,17 @@
+.Data{
+    margin-top:50px;
+    width:300px;
+    margin:0 auto;
+    position: relative;
+}
+.error{
+    text-align: center;
+    position: absolute;
+    top:0;
+    left:-30px;
+    border-radius:10px;
+    border:3px solid red;
+    color:white;
+    background: rgb(245, 129, 129);
+    padding:10px;
+}

@@ -25,7 +25,7 @@
     box-shadow: 0 10px 10px #ccc;
     margin:15px;
     border-radius:10px;
-    z-index: 100;
+    z-index: 1000;
 }
 .Floor:first-of-type{
     padding:15px;
@@ -53,7 +53,5 @@
     transform: scale(0);
 }
 
-.Data{
-    width:300px;
-    margin:0 auto;
-}
+
+

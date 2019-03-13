@@ -1,0 +1,20 @@
+.Floor{
+    width:90%;
+    margin:0 auto;
+    border:2px solid blueviolet;
+    min-height:300px;
+    border-radius:20px;
+    position: relative
+}
+
+.Flat{
+    list-style: none;
+    width:80%;
+    margin:20px auto;
+    padding:30px;
+    box-sizing:border-box;
+    text-align: center;
+    border:2px solid black;
+    color:white;
+    border-radius: 20px;
+}
