@@ -37,9 +37,18 @@ class Home extends Component {
     changeOwnerName=(data,index)=>{
         let currentFlatOwner = [...this.state.currentFlatOwner]
         currentFlatOwner[index] = {...data}
+        let flats = [...this.state.flats]
+        let index1 = 0
+        for(let [index,value] of flats.entries()){
+            if(parseInt(this.state.no)===value.no){
+                index1= index
+            }
+        }
         console.log(currentFlatOwner[index])
+        flats[index1].flatOwner = currentFlatOwner;
         this.setState({
             currentFlatOwner:currentFlatOwner,
+            flats:flats,
             edit:false
         })
     }
@@ -71,8 +80,38 @@ class Home extends Component {
             return;
         }
         flatOwner.push(owner);
+        let flatDetails = []
+        let flats=[...this.state.flats]
+        
+        let toBeChanged=[]
+        let index1 = 0
+        for(let [index,value] of this.state.flats.entries()){
+            if(parseInt(this.state.no)===value.no){
+                flatDetails = value
+                toBeChanged = value.flatOwner
+                index1 = parseInt(index)
+            }
+        }
+        if(index1>0){
+            toBeChanged.push(owner);
+            flatDetails={
+                ...flatDetails,
+                flatOwner:toBeChanged
+            }
+            flats[index1] = flatDetails
+            console.log("already" ,flats)
+        }
+        else{
+            let data = {
+                no:this.state.no,
+                flatDetails:{rooms: 0, latBath: 0, kitchen: 0, location: 'some location'},
+                flatOwner:[owner]
+            }
+            flats.push(data)
+        }
+        console.log(flats)
         this.setState({
-
+            flats:flats,
             currentFlatOwner: flatOwner,
             owner: 'Show'
         })
