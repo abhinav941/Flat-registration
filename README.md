@@ -25,7 +25,7 @@ In the project directory, you can run:
     flats dataset consist of:</br>
         1: no : Flat Number ->starting : 0</br> 
       2: flatDetails : Detail of flat -> no. of room , no .of kitchens etc </br>
-      3: flatOwner : details of flat owner -> inititaly : []</br>
+      3: flatOwner : details of flat owner -> inititaly : [ ]</br>
        4: vacant : This will check the that flat is occupied or not. </br>
 
 Flat Master Registration : </br>
